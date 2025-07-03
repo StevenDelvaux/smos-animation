@@ -7,7 +7,7 @@ import contextlib
 from PIL import Image, ImageFont, ImageDraw
 #import subprocess
 
-import upload_to_dropbox
+import dropbox_client
 
 putOnDropbox = True
 prefix = 'images/'
