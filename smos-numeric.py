@@ -307,6 +307,9 @@ csvBeigeFilename = getCsvFilename(north, smap, False)
 graphFilename = getGraphFilename(north, smap)
 animationFileName = getanimationFileName(north, smap)
 
+if putOnDropbox:
+	dropbox_client.downloadFromDropbox([csvBeigeFilename,csvFilename])
+
 appendToCsvFile(csvFilename, aweighted)
 appendToCsvFile(csvBeigeFilename, abeige)
 time.sleep(5)
@@ -314,7 +317,7 @@ time.sleep(5)
 plotGraphSmap(csvFilename, graphFilename, "SMOS/SMAP Arctic sea ice: weighted pixel count", 3000, 32400, "pixels",92,0,True)
 time.sleep(5)
 if putOnDropbox:
-	dropbox_client.uploadToDropbox([csvFilename,graphFilename])
+	dropbox_client.uploadToDropbox([csvFilename,csvBeigeFilename,graphFilename])
 	
 animationFileName = getanimationFileName(north, smap)
 
